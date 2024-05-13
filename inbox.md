@@ -11,3 +11,8 @@
 - Va bene, puoi semplicemente cancellarli!
   - Puoi sempre trovarli nella cronologia del tuo git, se davvero ne hai bisogno!
 - Ancora un punto da come 
+``` python 
+
+print("Hello World")
+
+```
