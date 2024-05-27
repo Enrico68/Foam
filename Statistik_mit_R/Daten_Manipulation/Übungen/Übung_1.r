@@ -6,6 +6,7 @@
 bank <- read.csv("/Users/enricopirani/Foam/Statistik_mit_R/Datasets/bankloan.csv")
 names(bank)
 View(bank)
+library(dplyr)
 
 #a. Nur verheiraten Personen 
 bank1 <- select(bank, marital,)
@@ -29,4 +30,10 @@ View(bank1)
 bank2 <- select(bank, balance, loan,)
 View(bank2)
 bank3 <- filter(bank2,  balance > 1000)
-View(bank3)
+        View(bank3)
+
+
+## Übung 2
+
+#a Codiere die Variable ehelich wie folgt: 
+# verheiratet -1, ledig -0
