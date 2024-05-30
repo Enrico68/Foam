@@ -5,12 +5,13 @@
 
 bank <- read.csv("/Users/enricopirani/Foam/Statistik_mit_R/Datasets/bankloan.csv")
 names(bank)
-View(bank)
+vd(bank)
 library(dplyr)
+library(rvisidata)
 
 #a. Nur verheiraten Personen 
 bank1 <- select(bank, marital,)
-View(bank1)
+vd(bank1)
 demo3 <- filter(bank1, marital == "married")
 View(demo3)
 
@@ -37,3 +38,29 @@ bank3 <- filter(bank2,  balance > 1000)
 
 #a Codiere die Variable ehelich wie folgt: 
 # verheiratet -1, ledig -0
+
+require(plyr)
+
+bank <- read.csv("/Users/enricopirani/Foam/Statistik_mit_R/Datasets/bankloan.csv")
+names(bank)
+bank$marital1 = revalue(bank$marital, c("married"="1", "single" = "2"))
+
+
+
+# Umkodieren Sie das variable loan  wie folgt: ja – 1, nein – 0A
+
+bank$loan1 = revalue(bank$loan, c("yes" = "1", "no" =  "0"))
+bank$balance1 = cut(bank$balance, breaks = c(-Inf, 500, 1000, Inf), 
+                    labels = c ("1", "2", "3"))
+bank2 <- bank[order(bank$age),]
+bank2 <- bank[order(-bank$balance),]
+bank1 <- bank[order(bank$balance, -bank$age),]
+bank1
+
+# Nel file di dati brand.csv, crea una nuova variabile 
+# calcolando la media delle seguenti variabili: qualità, problemi e pubblicità.
+
+brand <- read.csv("~/Foam/Statistik_mit_R/Datasets/brand.csv")
+brand$avg <- (brand$quality+brand$problems+brand$ads)/3
+brand
+

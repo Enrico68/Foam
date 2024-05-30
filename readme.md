@@ -1,3 +1,10 @@
+---
+pandoc_:
+  - output: .pdf
+  - defaults: academic # this is just an example option, adapt to your preference
+---
+
+
 <img src="attachments/foam-icon.png" width=100 align="left">
 
 # Foam
